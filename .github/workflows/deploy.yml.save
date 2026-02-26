@@ -1,0 +1,33 @@
+name: Deploy MkDocs to GitHub Pages
+
+# Déclenche la workflow à chaque push sur main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Récupérer le repo
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # 2️⃣ Installer Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # 3️⃣ Installer MkDocs et extensions
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs mkdocs-material mkdocs-video mkdocs-audio mkdocs-render-stopper
+
+      # 4️⃣ Construire le site et le déployer sur GitHub Pages
+      - name: Build and deploy MkDocs
+        run: |
+          mkdocs gh-deploy --force --verbose
