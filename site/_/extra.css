@@ -776,57 +776,56 @@ body[data-md-color-scheme="slate"].finishing .md-typeset kbd {
 }
 
 
-/* Changer le background du header */
-.md-header {
-    background-color: #2a2929 !important;  /* couleur souhaitée */
-    /* background-image: url('/images/mon-background.jpg');  si tu veux une image */
-    /* background-size: cover; */
-    /* background-position: center; */
+
+
+
+
+/* =========================
+   CORRECTIONS de Couleurs (ajout Steph)
+   ========================= */
+
+
+/* =========================
+Mode Clair 
+========================= */
+[data-md-color-scheme="default"],
+.md-scheme-default,
+:root {
+    --md-primary-fg-color: #2a2929;
+    --md-primary-fg-color--light: #5d6cc0;
+    --md-primary-fg-color--dark: #303fa1;
+    --md-primary-bg-color: #957d4a;
+    --md-primary-bg-color--light: #ffffffb3;
+    --md-accent-fg-color: #97896c;
+    --md-accent-fg-color--transparent: #526cfe1a;
+    --md-accent-bg-color: #fff;
+    --md-accent-bg-color--light:#ffffffb3;
+    --md-default-fg-color--light: #957d4a; /* Lighter text for borders, etc. */
 }
 
-/* Changer la couleur du texte du header en bronze */
-.md-header, 
-.md-header a, 
-.md-header .md-header__title {
-    color: #957d4a!important;  /* bronze */
-}
 
-
-
+/* =========================
+Mode sombre 
+========================= */
 [data-md-color-scheme="slate"] {
-  --md-default-bg-color:        #1b1b1b; /* Main background */
-  --md-default-bg-color--light: #2d2d2d; /* Slightly lighter background (cards, etc.) */
+    --md-primary-fg-color: #2a2929;
+    --md-primary-bg-color: #957d4a;
+    --md-default-bg-color: #1b1b1b; /* Main background */
+    --md-default-bg-color--light: #2d2d2d; /* Slightly lighter background (cards, etc.) */
+    --md-code-bg-color: #252525; /* Darker code block background */
+    --md-code-fg-color: #f8f8f2; /* Light text for code blocks */
+    --md-default-fg-color: #bb9e7b; /* Main body text color */
+    --md-default-fg-color--light: #b58664; /* Lighter text for borders, etc. */
+    --md-default-fg-color--lighter: #808080; /* Even lighter/faded text for very subtle elements */
+    --md-accent-fg-color: #97896c; /* Link color in typeset */
 }
 
-[data-md-color-scheme="slate"] {
-  --md-code-bg-color: #1e1e1e; /* Darker code block background */
-  --md-code-fg-color: #f8f8f2; /* Light text for code blocks */
-}
-
-[data-md-color-scheme="slate"] {
-  /* Main body text color */
-    color: #f0e1d1!important;  /* bronze */
-  --md-default-fg-color:        #bb9e7b; 
-  
-  /* Dimmer text for secondary info (e.g., meta data, dates) */
-  --md-default-fg-color--light: #b58664; 
-  
-  /* Even lighter/faded text for very subtle elements */
-  --md-default-fg-color--lighter: #808080;
-}
-
-
-
-
-/* Appliquer uniquement au mode sombre (slate) */
 [data-md-color-scheme="slate"] .md-typeset a {
   color: #97896c;
 }
 
-/* Garder votre hover fonctionnel via la variable ou le sélecteur direct */
 [data-md-color-scheme="slate"] .md-typeset a:hover {
-    color: #906e56;
-    font-weight: bold;
+  color: #906e56;
 }
 
 .md-nav__item .md-nav__link--active, .md-nav__item .md-nav__link--active code {
@@ -846,19 +845,17 @@ body[data-md-color-scheme="slate"].finishing .md-typeset kbd {
     color: #cd9b56 !important;
 }
 
-
 .md-typeset .md-button:focus, .md-typeset .md-button:hover {
-    background-color: #634729;
-    border-color: #382817; 
-    color: #382817;
+    background-color: #23190e;
+    border-color: #6e5840; 
+    color: #7c6852;
 }
 
-.md-typeset .md-button:focus, .md-typeset .md-button {
+ .md-typeset .md-button {
     background-color: #382817;
-    border-color: #946c40; 
+    border-color: #41301e; 
     color: #b58664;
 }
-
 
 /* Cache le logo et le titre "Notes de cours" dans la barre latérale */
 .md-sidebar--primary .md-nav__title[for="__drawer"] {
@@ -881,12 +878,31 @@ body[data-md-color-scheme="slate"].finishing .md-typeset kbd {
     display: block !important;
 }
 
-
-
 /* 4. Assure que tous les items enfants (Cours 1, 2, 3...) restent visibles */
 .md-sidebar--primary .md-nav__item--active .md-nav__item,
 .md-sidebar--primary .md-nav__item:has(.md-nav__link--active) .md-nav__item {
     display: block !important;
 }
 
+.ext-link-icon {
+    stroke: #97896c;
+}
+
+a:hover .ext-link-icon {
+    stroke: #906e56;
+}
+
+a.md-button--primary .ext-link-icon {
+    stroke: #b58664;
+}
+
+a:hover.md-button--primary .ext-link-icon {
+    stroke: #7c6852;
+}
+
+@media screen and (min-width:60em) {
+    .md-nav--secondary .md-nav__title {
+        font-size: 1.5em;
+    }
+}
 
